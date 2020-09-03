@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import CommentInput from './components/CommentInput';
+import CommentList from './components/CommentList'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+	constructor() {
+		super();
+		this.state = {
+			list: [
+				{
+					username: 'coliy',
+					content: 'collage'
+				},
+				{
+					username: 'vmask',
+					content: 'work'
+				}
+			]
+		}
+		this.saveComment = this.saveComment.bind(this);
+	}
+
+	saveComment(commentObj) {
+		console.log(commentObj);
+		// this.state.list.push(commentObj);
+		const list = this.state.list;
+		list.push(commentObj);
+		this.setState({
+			list: list
+		});
+	}
+
+	render() {
+	    return (
+	        <div className="app">
+	          <CommentInput collect={this.saveComment} />
+	          <CommentList list={this.state.list} />
+	        </div>
+	    );
+	}
 }
 
 export default App;
