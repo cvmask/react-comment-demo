@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { Card } from 'antd';
 import CommentInput from './components/CommentInput';
 import CommentList from './components/CommentList'
-import { Card } from 'antd';
+import BookRank from './components/BookRank'
 
 class App extends Component {
 	constructor() {
@@ -39,6 +40,9 @@ class App extends Component {
 				</Card>
 				<Card title="留言列表" >
 					<CommentList list={this.state.list} />
+				</Card>
+				<Card title="图书排行">
+					<BookRank />
 				</Card>
 			</div>
 		);
