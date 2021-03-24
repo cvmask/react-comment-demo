@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
-import CommentContent from './CommentContent.js';
+import React, { Component } from 'react';
+import { Avatar, List } from 'antd'
+import { UserOutlined } from '@ant-design/icons';
 
 class CommentList extends Component {
 	constructor(props) {
@@ -9,16 +10,19 @@ class CommentList extends Component {
 
 	render() {
 		return (
-			<div>
-			{
-
-				this.props.list.map((item, index) => {
-					return (
-						<CommentContent key={index} content={item} />
-					)
-				})
-			}
-			</div>
+			<List
+				itemLayout="horizontal"
+				dataSource={this.props.list}
+				renderItem={item => (
+					<List.Item>
+						<List.Item.Meta
+							avatar={<Avatar size={32} icon={<UserOutlined />} />}
+							title={<a href="https://ant.design">{item.username}</a>}
+							description={item.content}
+						/>
+					</List.Item>
+				)}
+			/>
 		);
 	}
 }

@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import {Button, Input} from 'antd';
+
+const {TextArea} = Input;
 
 class CommentInput extends Component {
 	constructor(props) {
@@ -51,17 +54,17 @@ class CommentInput extends Component {
 				<div>
 					<label>用户名：</label>
 					<div>
-						<input value={this.state.username} onChange={this.changeInputUsername} />
+						<Input value={this.state.username} onChange={this.changeInputUsername} />
 					</div>
 				</div>
 				<div>
 					<label>留言：</label>
 					<div>
-						<textarea value={this.state.content} onChange={this.changeInputContent} />
+						<TextArea value={this.state.content} onChange={this.changeInputContent} />
 					</div>
 				</div>
 				<div>
-					<button onClick={this.submitComment}>提交</button>
+					<Button onClick={this.submitComment}>提交</Button>
 				</div>
 			</div>
 		);

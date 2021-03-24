@@ -1,6 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import CommentInput from './components/CommentInput';
 import CommentList from './components/CommentList'
+import { Card } from 'antd';
 
 class App extends Component {
 	constructor() {
@@ -31,12 +32,16 @@ class App extends Component {
 	}
 
 	render() {
-	    return (
-	        <div className="app">
-	          <CommentInput collect={this.saveComment} />
-	          <CommentList list={this.state.list} />
-	        </div>
-	    );
+		return (
+			<div className="app">
+				<Card title="留言输入框">
+					<CommentInput collect={this.saveComment} />
+				</Card>
+				<Card title="留言列表" >
+					<CommentList list={this.state.list} />
+				</Card>
+			</div>
+		);
 	}
 }
 
